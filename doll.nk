@@ -1,0 +1,304 @@
+#! /usr/local/Nuke10.0v2/libnuke-10.0.2.so -nx
+#write_info Write1 file:"/users/ugrad/e/ecmraven/csanm354/render/doll_comp.jpg" format:"2353 1768 1" chans:":rgba.red:rgba.green:rgba.blue:" framerange:"1 100" fps:"0" colorspace:"default (sRGB)" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
+version 10.0 v2
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="1920" y="0" w="1920" h="1080" maximized="1" screen="1">
+        <splitter orientation="1">
+            <split size="40"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1257" stretch="1"/>
+            <splitter orientation="2">
+                <split size="597"/>
+                <dock id="" activePageId="Viewer.1">
+                    <page id="Viewer.1"/>
+                </dock>
+                <split size="419"/>
+                <dock id="" activePageId="DAG.1">
+                    <page id="DAG.1"/>
+                    <page id="Curve Editor.1"/>
+                    <page id="DopeSheet.1"/>
+                </dock>
+            </splitter>
+            <split size="615"/>
+            <dock id="" activePageId="Properties.1" focus="true">
+                <page id="Properties.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name /users/ugrad/e/ecmraven/csanm354/doll.nk
+ format "2048 1556 0 0 2048 1556 1 2K_Super_35(full-ap)"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+}
+Viewer {
+ inputs 0
+ frame 1
+ frame_range 1-100
+ name Viewer1
+ xpos 571
+ ypos 248
+}
+Roto {
+ inputs 0
+ output alpha
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px 1
+        {0 0}
+        {x4465599a x442f0000}
+        {0 0}
+        {0 0}
+        {x4463f333 x4429a666}
+        {0 0}
+        {0 0}
+        {x4479a666 x4421599a}
+        {0 0}
+        {0 0}
+        {x44868000 x44288ccd}
+        {0 0}
+        {0 0}
+        {x4486c666 x44304000}
+        {0 0}}}     idem}
+     {tx 1 x4479199a x442a28f6}
+     {a osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 tt x40800000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {1024 778}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ name Roto2
+ xpos 647
+ ypos 141
+}
+Roto {
+ inputs 0
+ cliptype none
+ outputMask -rgba.alpha
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Bezier1 512 bezier
+     {{cc
+       {f 8192}
+       {px 1
+        {xc2930000 xc2060000}
+        {x4486e000 x442d8000}
+        {x41200000 xc1c40000}
+        {x40c00100 x41600000}
+        {x4489fffe x441c4000}
+        {xc1f6a1c0 xc0744800}
+        {x41d40020 xbf800000}
+        {x44771fff x441b6000}
+        {xc1bfffe0 0}
+        {x3f3a9000 xc02ee600}
+        {x445f1fff x441bc000}
+        {xc0bfff80 x41b40000}
+        {xc0b0b600 x4012f200}
+        {x4464a665 x442bf99a}
+        {x416666c0 xc1066680}}}     idem}
+     {tx 1 x4465b333 x4407999a}
+     {a osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 tt x40800000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {1024 778}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ motionblur_shutter_offset_type centred
+ source_black_outside true
+ maskChannelInput -rgba.alpha
+ name Roto1
+ xpos 535
+ ypos 85
+}
+add_layer {direct_reflect direct_reflect.red direct_reflect.green direct_reflect.blue}
+EdgeBlur {
+ inputs 1+1
+ channels rgba
+ size 7.8
+ edge_mult 10
+ brightness 0.84
+ maskChannelInput -direct_reflect.green
+ invert_mask true
+ name EdgeBlur1
+ xpos 391
+ ypos 150
+}
+Read {
+ inputs 0
+ file /users/ugrad/e/ecmraven/csanm354/render/table1.exr
+ format "2353 1768 0 0 2353 1768 1 "
+ origset true
+ name Read3
+ xpos 404
+ ypos -164
+}
+Shuffle {
+ name Shuffle1
+ xpos 335
+ ypos 8
+}
+Grade {
+ blackpoint 0.006
+ whitepoint 0.1
+ black 0.055
+ white 0.7
+ multiply 0.55
+ add -0.012
+ gamma 0.96
+ name Grade2
+ xpos 277
+ ypos 120
+}
+Read {
+ inputs 0
+ file /users/ugrad/e/ecmraven/csanm354/render/doll2.exr
+ format "2353 1768 0 0 2353 1768 1 "
+ origset true
+ name Read2
+ xpos -101
+ ypos -201
+}
+set N6c8dfb0 [stack 0]
+add_layer {indirect_reflect indirect_reflect.red indirect_reflect.green indirect_reflect.blue}
+Shuffle {
+ in indirect_reflect
+ out indirect_reflect
+ name shuffle_indirect_reflect
+ xpos 31
+ ypos -103
+}
+Grade {
+ channels indirect_reflect
+ name grade_indirect_reflect
+ xpos 34
+ ypos -25
+}
+push 0
+push $N6c8dfb0
+Shuffle {
+ name shuffle_diffuse
+ xpos -257
+ ypos -102
+}
+Grade {
+ whitepoint 2.75
+ black -0.35
+ gamma 1.02
+ name grade_diffuse
+ xpos -257
+ ypos -52
+}
+push $N6c8dfb0
+Shuffle {
+ in direct_reflect
+ out direct_reflect
+ name shuffle_direct_reflect
+ xpos -101
+ ypos -102
+}
+Grade {
+ channels direct_reflect
+ name Grade_direct_reflect
+ xpos -103
+ ypos -40
+}
+Merge2 {
+ inputs 3+1
+ operation plus
+ name Merge1
+ xpos -103
+ ypos 71
+}
+Read {
+ inputs 0
+ file /users/ugrad/e/ecmraven/csanm354/danielFuller_updated_background_without_object.jpg
+ format "2353 1768 0 0 2353 1768 1 "
+ origset true
+ name Read1
+ xpos 201
+ ypos -155
+}
+Grade {
+ name Grade1
+ xpos 175
+ ypos -5
+}
+Merge2 {
+ inputs 2
+ name Merge2
+ xpos 86
+ ypos 133
+}
+Merge2 {
+ inputs 2+1
+ name Merge3
+ xpos 224
+ ypos 228
+}
+Write {
+ file /users/ugrad/e/ecmraven/csanm354/render/doll_comp.jpg
+ file_type jpeg
+ checkHashOnRead false
+ version 2
+ name Write1
+ selected true
+ xpos 320
+ ypos 288
+}
